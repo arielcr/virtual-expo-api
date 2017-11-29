@@ -9,12 +9,12 @@ class StandController extends Controller
 {
     public function index()
     {
-        return Stand::with('company')->with('visitors')->get();
+        return Stand::with('company.contacts')->with('visitors')->get();
     }
 
     public function show($id)
     {
-        return Stand::with('company')->with('visitors')
+        return Stand::with('company.contacts')->with('visitors')->with('event')
             ->findOrFail($id);
     }
 

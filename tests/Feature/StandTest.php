@@ -18,6 +18,7 @@ class StandTest extends TestCase
         $token = $user->generateToken();
         $headers = ['Authorization' => "Bearer $token"];
         $payload = [
+            'code' => '1', 
             'booked' => 0,
             'free' => 0,
             'price' => '100',
@@ -28,6 +29,7 @@ class StandTest extends TestCase
         $this->json('POST', '/api/stands', $payload, $headers)
             ->assertStatus(201)
             ->assertJson([
+                'code' => '1', 
                 'booked' => 0,
                 'free' => 0,
                 'price' => '100',
@@ -82,6 +84,7 @@ class StandTest extends TestCase
             ->assertJsonStructure([
                 '*' => [
                     'id',
+                    'code',
                     'booked',
                     'free',
                     'price',
@@ -106,6 +109,7 @@ class StandTest extends TestCase
             ->assertStatus(200)
             ->assertJsonStructure([
                 'id',
+                'code',
                 'booked',
                 'free',
                 'price',

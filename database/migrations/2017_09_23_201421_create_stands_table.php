@@ -15,6 +15,7 @@ class CreateStandsTable extends Migration
     {
         Schema::create('stands', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code');            
             $table->boolean('booked');
             $table->boolean('free');
             $table->decimal('price', 10, 2);

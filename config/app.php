@@ -176,6 +176,7 @@ return [
         // VirtualExpo\Providers\BroadcastServiceProvider::class,
         VirtualExpo\Providers\EventServiceProvider::class,
         VirtualExpo\Providers\RouteServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 

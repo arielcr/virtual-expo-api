@@ -19,7 +19,7 @@ class CompanyTest extends TestCase
         $payload = [
             'name' => 'Lorem',
             'description' => 'Ipsum',
-            'logo' => 'logo.jpg'
+            'logo' => 'images/companies/1.jpg'
         ];
 
         $this->json('POST', '/api/companies', $payload, $headers)
@@ -27,7 +27,7 @@ class CompanyTest extends TestCase
             ->assertJson([
                 'name' => 'Lorem',
                 'description' => 'Ipsum',
-                'logo' => 'logo.jpg'
+                'logo' => 'images/companies/1.jpg'
             ]);
     }
 

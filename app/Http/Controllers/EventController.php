@@ -16,7 +16,8 @@ class EventController extends Controller
     {
         return Event::with('location.state.country')
             ->with('dates')
-            ->with('stands.company')
+            ->with('stands.company.contacts')
+            ->with('stands.company.documents')
             ->findOrFail($id);
     }
 

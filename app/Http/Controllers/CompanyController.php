@@ -3,12 +3,11 @@
 namespace VirtualExpo\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use VirtualExpo\Company;
 
-class CompanyController extends Controller
-{
-    public function index()
-    {
+class CompanyController extends Controller{
+    public function index(){
         return Company::with('contacts')->with('documents')->with('stands.visitors')->get();
     }
 
@@ -20,7 +19,13 @@ class CompanyController extends Controller
 
     public function store(Request $request)
     {
-        $company = Company::create($request->all());
+        //$path = $request->file('logo')->store('images/companies');
+
+        $company = new Company();
+        $company->name = $request->input('name');
+        $company->description = $request->input('description');
+        $company->logo = 'images/companies/1.jpg';
+        $company->save();
 
         return response()->json($company, 201);
     }

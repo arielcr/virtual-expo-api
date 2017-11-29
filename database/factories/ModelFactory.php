@@ -45,6 +45,7 @@ $factory->define(VirtualExpo\Location::class, function (Faker\Generator $faker) 
 
 $factory->define(VirtualExpo\Stand::class, function (Faker\Generator $faker) {
     return [
+        'code' => '1',
         'booked' => 0,
         'free' => 0,
         'price' => 100,

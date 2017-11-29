@@ -21,7 +21,7 @@ class DocumentTest extends TestCase
 
         $payload = [
             'name' => 'Lorem',
-            'path' => 'Ipsum',
+            'path' => 'documents/marketing.txt',
             'company_id' => $company->id
         ];
 
@@ -29,7 +29,7 @@ class DocumentTest extends TestCase
             ->assertStatus(201)
             ->assertJson([
                 'name' => 'Lorem',
-                'path' => 'Ipsum',
+                'path' => 'documents/marketing.txt',
                 'company_id' => $company->id
             ]);
     }

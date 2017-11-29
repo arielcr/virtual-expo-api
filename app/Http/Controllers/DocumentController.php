@@ -20,7 +20,13 @@ class DocumentController extends Controller
 
     public function store(Request $request)
     {
-        $document = Document::create($request->all());
+        //$path = $request->file('path')->store('documents');
+        
+        $document = new Document();
+        $document->name = $request->input('name');
+        $document->path = 'documents/marketing.txt';
+        $document->company_id = $request->input('company_id');
+        $document->save();
 
         return response()->json($document, 201);
     }
